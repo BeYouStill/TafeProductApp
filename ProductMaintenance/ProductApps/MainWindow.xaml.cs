@@ -30,6 +30,7 @@ namespace ProductApps
         private void calculateButton_Click(object sender, RoutedEventArgs e)
         {
             const int DELIV_FEE = 25;
+            const int WRAP_FEE = 5;
 
             try
             {
@@ -37,7 +38,10 @@ namespace ProductApps
                 cProduct.calTotalPayment();
                 totalPaymentTextBlock.Text = Convert.ToString(cProduct.TotalPayment);
                 string totalprice = Convert.ToString(cProduct.TotalPayment + DELIV_FEE);
+                string totalpriceafterwrap = Convert.ToString(cProduct.TotalPayment + DELIV_FEE + WRAP_FEE);
+
                 chargeAfterDeliveryTextBlock.Text = totalprice;
+                chargeAfterWrapTextBlock.Text = totalpriceafterwrap;
             }
             catch (FormatException)
             {
