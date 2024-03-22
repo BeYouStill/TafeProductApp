@@ -31,6 +31,7 @@ namespace ProductApps
         {
             const int DELIV_FEE = 25;
             const int WRAP_FEE = 5;
+            const decimal GST_RATE = 1.1m;
 
             try
             {
@@ -39,9 +40,12 @@ namespace ProductApps
                 totalPaymentTextBlock.Text = Convert.ToString(cProduct.TotalPayment);
                 string totalprice = Convert.ToString(cProduct.TotalPayment + DELIV_FEE);
                 string totalpriceafterwrap = Convert.ToString(cProduct.TotalPayment + DELIV_FEE + WRAP_FEE);
+                string totalpriceaftergst = Convert.ToString((cProduct.TotalPayment + DELIV_FEE + WRAP_FEE) * GST_RATE);
+                
 
                 chargeAfterDeliveryTextBlock.Text = totalprice;
                 chargeAfterWrapTextBlock.Text = totalpriceafterwrap;
+                chargeAfterGstTextBlock.Text = totalpriceaftergst;
             }
             catch (FormatException)
             {
